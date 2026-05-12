@@ -1,0 +1,1308 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Corre do Lucro — Jogo iPad</title>
+<style>
+:root{--bg:#0b1020;--card:#121a2d;--card2:#18223a;--text:#f2f5fa;--muted:#aeb8cb;--line:#293653;--accent:#6ee7f9;--good:#86efac;--warn:#fde68a;--bad:#fca5a5;--purple:#c4b5fd}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:radial-gradient(circle at top,#1d2a4a 0,#0b1020 48%,#070a12 100%);color:var(--text);min-height:100vh;padding:16px}.wrap{max-width:980px;margin:0 auto}.top{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:14px}.brand{font-size:14px;color:var(--muted);letter-spacing:.4px}.pill{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:8px 12px;color:var(--muted);font-size:13px}.screen{display:none;animation:fade .16s ease-out}.screen:target{display:block}#inicio{display:block}body:has(.screen:target) #inicio{display:none}@keyframes fade{from{opacity:.5;transform:translateY(4px)}to{opacity:1;transform:none}}.card{background:linear-gradient(180deg,rgba(18,26,45,.98),rgba(13,19,34,.98));border:1px solid var(--line);border-radius:22px;box-shadow:0 20px 60px rgba(0,0,0,.35);overflow:hidden}.hero{padding:22px 20px 16px;border-bottom:1px solid var(--line);background:linear-gradient(135deg,rgba(110,231,249,.12),rgba(196,181,253,.08) 45%,rgba(255,255,255,0))}.day{color:var(--accent);text-transform:uppercase;font-weight:800;font-size:12px;letter-spacing:1px;margin-bottom:8px}.title{font-size:30px;line-height:1.08;font-weight:900;letter-spacing:-.8px;margin:0}.content{padding:18px 20px 22px}.story{font-size:17px;line-height:1.55;color:#e8edf7;white-space:pre-line;margin:0 0 16px}.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:14px 0 16px}@media(max-width:780px){.grid{grid-template-columns:repeat(2,1fr)}.title{font-size:25px}body{padding:10px}.content,.hero{padding-left:14px;padding-right:14px}}.stat{background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:15px;padding:11px;min-height:68px}.stat small{display:block;color:var(--muted);font-size:11px;margin-bottom:5px}.stat b{font-size:16px}.inv{border:1px dashed #3a4766;border-radius:16px;padding:12px;color:var(--muted);background:rgba(0,0,0,.15);margin-bottom:16px;line-height:1.45}.choices{display:grid;gap:10px}.choice{display:block;text-decoration:none;color:var(--text);border:1px solid var(--line);border-radius:16px;padding:14px 14px;background:#18223a;transition:.12s transform,.12s border-color,.12s background;touch-action:manipulation}.choice:active{transform:scale(.99)}.choice:hover{border-color:#4b5f8d;background:#202d4c}.choice.primary{background:linear-gradient(135deg,#18314a,#1b2948)}.choice.secondary{background:#141d31}.choice.danger{background:linear-gradient(135deg,rgba(127,29,29,.55),#18223a)}.letter{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:9px;margin-right:8px;background:#0b1020;border:1px solid #354568;color:var(--accent);font-weight:900}.choice b{font-size:16px}.choice p{margin:8px 0 0;color:var(--muted);line-height:1.38}.footer{margin:16px 0;color:var(--muted);font-size:13px;line-height:1.4}.mood-good .day{color:var(--good)}.mood-warn .day{color:var(--warn)}.mood-bad .day{color:var(--bad)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div class="brand">CORRE DO LUCRO</div><div class="pill">Toque nas escolhas. Sem JavaScript.</div></div>
+  <section class="screen mood-good" id="inicio">
+  <div class="card">
+    <div class="hero"><div class="day">0/7</div><h1 class="title">Corre do Lucro — versão iPad</h1></div>
+    <div class="content">
+      <p class="story">Você começa com R$ 1.000 e sete dias para transformar isso no maior patrimônio possível.
+
+Esta versão foi feita sem JavaScript: os botões são links internos. Por isso ela funciona melhor no iPad e em visualizadores que bloqueiam scripts.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.000</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.000</b></div><div class="stat"><small>Energia</small><b>100</b></div><div class="stat"><small>Reputação</small><b>0</b></div><div class="stat"><small>Risco</small><b>0</b></div></div>
+      <div class="inv">Inventário vazio. Nenhum cliente ainda.</div>
+      <div class="choices"><a class="choice primary" href="#d1"><span class="letter">A</span><b>Iniciar no modo normal</b><p>Decisões comerciais, risco moderado e final por pontuação.</p></a>
+<a class="choice secondary" href="#regras"><span class="letter">B</span><b>Ler regras rápidas</b><p>Entenda como vencer antes de começar.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-neutral" id="regras">
+  <div class="card">
+    <div class="hero"><div class="day">0/7</div><h1 class="title">Regras rápidas</h1></div>
+    <div class="content">
+      <p class="story">Cada tela mostra uma situação e algumas escolhas. Você toca numa escolha e vai para a próxima cena.
+
+Como esta versão é compatível com iPad e não usa JavaScript, o jogo não salva automaticamente nem sorteia números em tempo real. Mesmo assim, cada rota tem status, consequências e finais diferentes.</p>
+      <div class="grid"><div class="stat"><small>Objetivo</small><b>Maior patrimônio</b></div><div class="stat"><small>Duração</small><b>7 dias</b></div><div class="stat"><small>Estilo</small><b>Escolha e consequência</b></div><div class="stat"><small>Controle</small><b>Clique/toque</b></div><div class="stat"><small>JS</small><b>Não usa</b></div></div>
+      <div class="inv">Observe caixa, estoque, reputação, energia e risco. Muito risco pode dar lucro rápido, mas piora os finais.</div>
+      <div class="choices"><a class="choice primary" href="#d1"><span class="letter">A</span><b>Começar agora</b><p>Ir para a primeira decisão.</p></a>
+<a class="choice secondary" href="#inicio"><span class="letter">B</span><b>Voltar ao início</b><p>Retornar à capa do jogo.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-neutral" id="d1">
+  <div class="card">
+    <div class="hero"><div class="day">1/7</div><h1 class="title">Dia 1 — Segunda-feira, manhã</h1></div>
+    <div class="content">
+      <p class="story">Você tem R$ 1.000. A semana começou e você precisa escolher o primeiro modelo de negócio.
+
+O objetivo não é só vender: é controlar caixa, reputação, estoque e risco.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.000</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.000</b></div><div class="stat"><small>Energia</small><b>100</b></div><div class="stat"><small>Reputação</small><b>0</b></div><div class="stat"><small>Risco</small><b>0</b></div></div>
+      <div class="inv">Inventário vazio.</div>
+      <div class="choices"><a class="choice primary" href="#capas1"><span class="letter">A</span><b>Comprar capas</b><p>20 capas por R$ 500. Simples, físico, fácil de entender.</p></a>
+<a class="choice primary" href="#combos1"><span class="letter">B</span><b>Comprar combos</b><p>10 capas + 10 películas por R$ 330. Ticket maior.</p></a>
+<a class="choice primary" href="#ia1"><span class="letter">C</span><b>Serviço com IA</b><p>Gastar R$ 150 criando oferta de currículo, edição e trabalhos simples.</p></a>
+<a class="choice secondary" href="#pesquisa1"><span class="letter">D</span><b>Pesquisar primeiro</b><p>Não comprar nada ainda. Entender demanda antes de agir.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-neutral" id="capas1">
+  <div class="card">
+    <div class="hero"><div class="day">1/7</div><h1 class="title">Você comprou 20 capas</h1></div>
+    <div class="content">
+      <p class="story">Custo total: R$ 500. Custo por unidade: R$ 25.
+
+Agora você precisa decidir o posicionamento. Vender barato gira rápido. Vender caro aumenta margem, mas pode encalhar.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 500</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.000</b></div><div class="stat"><small>Energia</small><b>90</b></div><div class="stat"><small>Reputação</small><b>0</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">20 capas no estoque.</div>
+      <div class="choices"><a class="choice primary" href="#capas_barato"><span class="letter">A</span><b>Girar rápido</b><p>Vender a R$ 35. Pouca margem, muita saída.</p></a>
+<a class="choice primary" href="#capas_medio"><span class="letter">B</span><b>Preço equilibrado</b><p>Vender a R$ 45. Margem boa e demanda razoável.</p></a>
+<a class="choice danger" href="#capas_caro"><span class="letter">C</span><b>Preço alto</b><p>Vender a R$ 60. Poucos compram, mas cada venda pesa.</p></a>
+<a class="choice secondary" href="#capas_reels"><span class="letter">D</span><b>Fazer Reels/TikTok</b><p>Gastar energia criando hype antes de vender.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="capas_barato">
+  <div class="card">
+    <div class="hero"><div class="day">1/7</div><h1 class="title">Giro rápido funcionou</h1></div>
+    <div class="content">
+      <p class="story">Você vendeu 14 capas a R$ 35. Um cliente reclamou de defeito, e você trocou por outra capa.
+
+A margem foi menor, mas a confiança subiu.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 990</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.165</b></div><div class="stat"><small>Energia</small><b>60</b></div><div class="stat"><small>Reputação</small><b>+3</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">5 capas restantes.</div>
+      <div class="choices"><a class="choice primary" href="#d2_volume"><span class="letter">A</span><b>Repor com volume</b><p>Comprar 30 capas e tentar dominar a demanda.</p></a>
+<a class="choice primary" href="#d2_peliculas"><span class="letter">B</span><b>Adicionar películas</b><p>Comprar 20 películas e montar combo.</p></a>
+<a class="choice secondary" href="#d2_conservador"><span class="letter">C</span><b>Vender com calma</b><p>Não repor ainda. Preservar caixa.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="capas_medio">
+  <div class="card">
+    <div class="hero"><div class="day">1/7</div><h1 class="title">Preço médio deu certo</h1></div>
+    <div class="content">
+      <p class="story">Você vendeu 11 capas a R$ 45. Não zerou estoque, mas fez caixa e não queimou margem.
+
+A reputação subiu porque você entregou no horário.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 995</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.400</b></div><div class="stat"><small>Energia</small><b>65</b></div><div class="stat"><small>Reputação</small><b>+2</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">9 capas restantes.</div>
+      <div class="choices"><a class="choice primary" href="#d2_peliculas"><span class="letter">A</span><b>Repor com combos</b><p>Comprar películas para vender capa + película.</p></a>
+<a class="choice primary" href="#d2_marketing"><span class="letter">B</span><b>Chamar divulgador</b><p>Pagar comissão para um aluno popular.</p></a>
+<a class="choice secondary" href="#d2_conservador"><span class="letter">C</span><b>Segurar caixa</b><p>Vender o restante antes de comprar mais.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="capas_caro">
+  <div class="card">
+    <div class="hero"><div class="day">1/7</div><h1 class="title">Preço alto travou o giro</h1></div>
+    <div class="content">
+      <p class="story">Você vendeu só 6 capas a R$ 60. Lucro por unidade foi alto, mas o estoque ficou pesado.
+
+A semana ainda está aberta, mas você precisa destravar demanda.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 860</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.490</b></div><div class="stat"><small>Energia</small><b>72</b></div><div class="stat"><small>Reputação</small><b>0</b></div><div class="stat"><small>Risco</small><b>2</b></div></div>
+      <div class="inv">14 capas restantes.</div>
+      <div class="choices"><a class="choice primary" href="#d2_promocao"><span class="letter">A</span><b>Fazer promoção</b><p>Reduzir preço para vender mais amanhã.</p></a>
+<a class="choice primary" href="#d2_peliculas"><span class="letter">B</span><b>Criar combo</b><p>Comprar películas e aumentar valor percebido.</p></a>
+<a class="choice danger" href="#d2_alto_risco"><span class="letter">C</span><b>Insistir no preço</b><p>Manter caro e buscar clientes com mais dinheiro.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="capas_reels">
+  <div class="card">
+    <div class="hero"><div class="day">1/7</div><h1 class="title">O vídeo viralizou um pouco</h1></div>
+    <div class="content">
+      <p class="story">Você fez um vídeo simples mostrando capas. Não explodiu, mas gerou procura.
+
+Vendeu 16 capas a R$ 45. Hype ajuda, mas cansa.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.220</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.400</b></div><div class="stat"><small>Energia</small><b>45</b></div><div class="stat"><small>Reputação</small><b>+5</b></div><div class="stat"><small>Risco</small><b>2</b></div></div>
+      <div class="inv">4 capas restantes. Hype alto.</div>
+      <div class="choices"><a class="choice primary" href="#d2_volume"><span class="letter">A</span><b>Escalar com fornecedor</b><p>Comprar lote maior amanhã.</p></a>
+<a class="choice primary" href="#d2_prevenda"><span class="letter">B</span><b>Pré-venda por modelo</b><p>Cobrar sinal antes de comprar.</p></a>
+<a class="choice secondary" href="#d2_conservador"><span class="letter">C</span><b>Descansar e organizar</b><p>Menos venda, mais controle.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-neutral" id="combos1">
+  <div class="card">
+    <div class="hero"><div class="day">1/7</div><h1 class="title">Você começou com combos</h1></div>
+    <div class="content">
+      <p class="story">Você comprou 10 capas e 10 películas por R$ 330.
+
+Custo do combo: R$ 33. Preço possível: R$ 60. A margem é melhor que vender só capa.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 670</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.000</b></div><div class="stat"><small>Energia</small><b>92</b></div><div class="stat"><small>Reputação</small><b>0</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">10 capas + 10 películas.</div>
+      <div class="choices"><a class="choice primary" href="#combo_normal"><span class="letter">A</span><b>Vender combo a R$ 60</b><p>Preço justo, margem forte.</p></a>
+<a class="choice primary" href="#combo_promo"><span class="letter">B</span><b>Promoção: combo R$ 55</b><p>Acelerar vendas e ganhar clientes.</p></a>
+<a class="choice secondary" href="#combo_prevenda"><span class="letter">C</span><b>Pré-venda por modelo</b><p>Cobrar R$ 20 de sinal para encomendas.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="combo_normal">
+  <div class="card">
+    <div class="hero"><div class="day">1/7</div><h1 class="title">Combo validado</h1></div>
+    <div class="content">
+      <p class="story">Você vendeu 8 combos a R$ 60. A aceitação foi boa.
+
+Sobrou pouco estoque, mas agora você sabe que o produto tem demanda.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.150</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.270</b></div><div class="stat"><small>Energia</small><b>65</b></div><div class="stat"><small>Reputação</small><b>+3</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">2 capas + 2 películas.</div>
+      <div class="choices"><a class="choice primary" href="#d2_combo_volume"><span class="letter">A</span><b>Repor forte</b><p>Comprar 30 combos no fornecedor.</p></a>
+<a class="choice primary" href="#d2_prevenda"><span class="letter">B</span><b>Pré-venda antes de repor</b><p>Cobrar sinal e comprar só o que vender.</p></a>
+<a class="choice secondary" href="#d2_fones"><span class="letter">C</span><b>Testar fones baratos</b><p>Adicionar produto novo ao catálogo.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="combo_promo">
+  <div class="card">
+    <div class="hero"><div class="day">1/7</div><h1 class="title">Promoção trouxe clientes</h1></div>
+    <div class="content">
+      <p class="story">Você vendeu todos os 10 combos a R$ 55.
+
+Lucro menor por unidade, mas agora tem compradores satisfeitos e demanda para recompra.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.220</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.220</b></div><div class="stat"><small>Energia</small><b>60</b></div><div class="stat"><small>Reputação</small><b>+5</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">Estoque zerado. 6 clientes recorrentes.</div>
+      <div class="choices"><a class="choice primary" href="#d2_combo_volume"><span class="letter">A</span><b>Repor forte</b><p>Comprar 30 combos para a terça.</p></a>
+<a class="choice primary" href="#d2_prevenda"><span class="letter">B</span><b>Pré-venda no grupo</b><p>Usar clientes satisfeitos para vender antes de comprar.</p></a>
+<a class="choice secondary" href="#d2_conservador"><span class="letter">C</span><b>Ficar líquido</b><p>Não comprar nada até aparecer demanda concreta.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="combo_prevenda">
+  <div class="card">
+    <div class="hero"><div class="day">1/7</div><h1 class="title">Pré-venda inteligente</h1></div>
+    <div class="content">
+      <p class="story">Você não vendeu tudo no impulso. Abriu lista por modelo e cobrou R$ 20 de sinal.
+
+Entraram 12 reservas para amanhã.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 910</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.240</b></div><div class="stat"><small>Energia</small><b>72</b></div><div class="stat"><small>Reputação</small><b>+4</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">10 combos físicos + 12 encomendas com sinal.</div>
+      <div class="choices"><a class="choice primary" href="#d2_prevenda"><span class="letter">A</span><b>Comprar só as encomendas</b><p>Baixo risco, lucro controlado.</p></a>
+<a class="choice primary" href="#d2_combo_volume"><span class="letter">B</span><b>Comprar lote maior</b><p>Aproveitar sinal e aumentar estoque.</p></a>
+<a class="choice secondary" href="#d2_marketing"><span class="letter">C</span><b>Pedir indicação</b><p>Dar bônus para quem trouxer comprador.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-neutral" id="ia1">
+  <div class="card">
+    <div class="hero"><div class="day">1/7</div><h1 class="title">Você montou um serviço com IA</h1></div>
+    <div class="content">
+      <p class="story">Você gastou R$ 150 em artes, exemplos e anúncio. A oferta ficou: currículos, resumo de PDF, edição curta e trabalhos simples.
+
+Chegaram 9 interessados.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 850</b></div><div class="stat"><small>Patrimônio</small><b>R$ 850</b></div><div class="stat"><small>Energia</small><b>82</b></div><div class="stat"><small>Reputação</small><b>+1</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">9 leads de serviço. Sem estoque físico.</div>
+      <div class="choices"><a class="choice primary" href="#ia_barato"><span class="letter">A</span><b>Cobrar barato e entregar rápido</b><p>R$ 35 por serviço. Gira reputação.</p></a>
+<a class="choice primary" href="#ia_medio"><span class="letter">B</span><b>Cobrar R$ 60 por serviço</b><p>Menos clientes, margem maior.</p></a>
+<a class="choice secondary" href="#ia_produto"><span class="letter">C</span><b>Transformar leads em compradores</b><p>Oferecer capa + película para esses contatos.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="ia_barato">
+  <div class="card">
+    <div class="hero"><div class="day">1/7</div><h1 class="title">Serviço girou rápido</h1></div>
+    <div class="content">
+      <p class="story">Você entregou 7 serviços a R$ 35. Foi cansativo, mas criou reputação.
+
+O caixa subiu pouco, porém agora as pessoas confiam em você.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.095</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.095</b></div><div class="stat"><small>Energia</small><b>40</b></div><div class="stat"><small>Reputação</small><b>+6</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">2 leads restantes. Sem estoque.</div>
+      <div class="choices"><a class="choice primary" href="#d2_combo_volume"><span class="letter">A</span><b>Migrar para combos</b><p>Comprar 20 combos e vender para a base criada.</p></a>
+<a class="choice primary" href="#d2_servico"><span class="letter">B</span><b>Continuar nos serviços</b><p>Faturar sem estoque, mas gastando energia.</p></a>
+<a class="choice secondary" href="#d2_prevenda"><span class="letter">C</span><b>Pré-vender produto</b><p>Cobrar sinal antes de comprar.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-neutral" id="ia_medio">
+  <div class="card">
+    <div class="hero"><div class="day">1/7</div><h1 class="title">Serviço premium funcionou parcialmente</h1></div>
+    <div class="content">
+      <p class="story">Você fechou 4 serviços a R$ 60. A margem foi boa, mas alguns acharam caro.
+
+Ainda assim, você começou com caixa preservado.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.090</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.090</b></div><div class="stat"><small>Energia</small><b>58</b></div><div class="stat"><small>Reputação</small><b>+3</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">5 leads mornos. Sem estoque.</div>
+      <div class="choices"><a class="choice primary" href="#d2_peliculas"><span class="letter">A</span><b>Comprar combos</b><p>Usar caixa para produto físico de maior escala.</p></a>
+<a class="choice primary" href="#d2_servico"><span class="letter">B</span><b>Criar pacote premium</b><p>Serviço + entrega rápida por R$ 90.</p></a>
+<a class="choice secondary" href="#d2_conservador"><span class="letter">C</span><b>Pesquisar demanda</b><p>Evitar comprar produto errado.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="ia_produto">
+  <div class="card">
+    <div class="hero"><div class="day">1/7</div><h1 class="title">Você conectou serviço e produto</h1></div>
+    <div class="content">
+      <p class="story">Você comprou 10 combos por R$ 330 e ofereceu para os leads.
+
+Vendeu 6 combos. A mistura de serviço + produto criou relação com clientes.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 880</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.120</b></div><div class="stat"><small>Energia</small><b>55</b></div><div class="stat"><small>Reputação</small><b>+4</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">4 capas + 4 películas. 3 leads de serviço.</div>
+      <div class="choices"><a class="choice primary" href="#d2_combo_volume"><span class="letter">A</span><b>Repor combos</b><p>Comprar mais combos e escalar.</p></a>
+<a class="choice primary" href="#d2_prevenda"><span class="letter">B</span><b>Pré-vender por modelo</b><p>Comprar só com sinal.</p></a>
+<a class="choice secondary" href="#d2_servico"><span class="letter">C</span><b>Focar em serviço</b><p>Menos estoque, mais trabalho manual.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-neutral" id="pesquisa1">
+  <div class="card">
+    <div class="hero"><div class="day">1/7</div><h1 class="title">Pesquisa revelou uma oportunidade</h1></div>
+    <div class="content">
+      <p class="story">Você passou a manhã perguntando nos grupos. Descobriu que as pessoas querem mais combo capa + película do que capa avulsa.
+
+Também viu que domingo o fornecedor cobra mais caro.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.000</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.000</b></div><div class="stat"><small>Energia</small><b>88</b></div><div class="stat"><small>Reputação</small><b>+1</b></div><div class="stat"><small>Risco</small><b>0</b></div></div>
+      <div class="inv">Sem estoque, mas com informação melhor.</div>
+      <div class="choices"><a class="choice primary" href="#d2_combo_volume"><span class="letter">A</span><b>Comprar 20 combos</b><p>Entrar mais preparado.</p></a>
+<a class="choice primary" href="#d2_prevenda"><span class="letter">B</span><b>Fazer pré-venda</b><p>Validar antes de comprar.</p></a>
+<a class="choice secondary" href="#ia1"><span class="letter">C</span><b>Começar com serviço IA</b><p>Gerar caixa sem estoque.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="d2_volume">
+  <div class="card">
+    <div class="hero"><div class="day">2/7</div><h1 class="title">Dia 2 — Aposta em volume</h1></div>
+    <div class="content">
+      <p class="story">Você negocia com o fornecedor e compra mais capas. O custo baixo ajuda, mas estoque parado é dinheiro preso.
+
+Agora surge a chance de pagar um divulgador por comissão.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 320</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.970</b></div><div class="stat"><small>Energia</small><b>52</b></div><div class="stat"><small>Reputação</small><b>+4</b></div><div class="stat"><small>Risco</small><b>3</b></div></div>
+      <div class="inv">35 capas. Pouco caixa.</div>
+      <div class="choices"><a class="choice primary" href="#d3_marketing_ok"><span class="letter">A</span><b>Comissão por venda</b><p>Pagar R$ 5 por venda gerada.</p></a>
+<a class="choice secondary" href="#d3_sozinho"><span class="letter">B</span><b>Vender sozinho</b><p>Economizar comissão, gastar mais energia.</p></a>
+<a class="choice danger" href="#d3_overstock"><span class="letter">C</span><b>Comprar películas também</b><p>Aumentar risco para vender combo.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d2_peliculas">
+  <div class="card">
+    <div class="hero"><div class="day">2/7</div><h1 class="title">Dia 2 — Virando para combos</h1></div>
+    <div class="content">
+      <p class="story">Você compra películas e passa a oferecer combo. O ticket sobe e o cliente entende melhor o valor.
+
+O desafio é controlar modelos diferentes.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 760</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.700</b></div><div class="stat"><small>Energia</small><b>58</b></div><div class="stat"><small>Reputação</small><b>+4</b></div><div class="stat"><small>Risco</small><b>2</b></div></div>
+      <div class="inv">Capas + películas suficientes para vender combos.</div>
+      <div class="choices"><a class="choice primary" href="#d3_combo_ok"><span class="letter">A</span><b>Combo a R$ 60</b><p>Vender com margem cheia.</p></a>
+<a class="choice primary" href="#d3_combo_giro"><span class="letter">B</span><b>Promoção R$ 55</b><p>Girar mais rápido e ganhar compradores.</p></a>
+<a class="choice secondary" href="#d3_prevenda_ok"><span class="letter">C</span><b>Pré-venda por modelo</b><p>Evitar encalhe de modelos errados.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-neutral" id="d2_conservador">
+  <div class="card">
+    <div class="hero"><div class="day">2/7</div><h1 class="title">Dia 2 — Caixa preservado</h1></div>
+    <div class="content">
+      <p class="story">Você decidiu não forçar. Vendeu parte do estoque e manteve caixa para oportunidades melhores.
+
+Não é a rota mais explosiva, mas reduz chance de quebrar.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.250</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.470</b></div><div class="stat"><small>Energia</small><b>75</b></div><div class="stat"><small>Reputação</small><b>+3</b></div><div class="stat"><small>Risco</small><b>0</b></div></div>
+      <div class="inv">Estoque baixo. Caixa alto.</div>
+      <div class="choices"><a class="choice primary" href="#d3_combo_ok"><span class="letter">A</span><b>Entrar em combos agora</b><p>Comprar com segurança.</p></a>
+<a class="choice secondary" href="#d3_servico_ok"><span class="letter">B</span><b>Serviço IA paralelo</b><p>Aumentar caixa sem estoque.</p></a>
+<a class="choice secondary" href="#d3_wait"><span class="letter">C</span><b>Esperar evento maior</b><p>Guardar caixa para sexta.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d2_marketing">
+  <div class="card">
+    <div class="hero"><div class="day">2/7</div><h1 class="title">Dia 2 — Marketing por comissão</h1></div>
+    <div class="content">
+      <p class="story">Você chama um aluno popular e não paga fixo: só R$ 5 por venda.
+
+Essa escolha protege caixa e alinha interesse.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.260</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.700</b></div><div class="stat"><small>Energia</small><b>50</b></div><div class="stat"><small>Reputação</small><b>+6</b></div><div class="stat"><small>Risco</small><b>2</b></div></div>
+      <div class="inv">Estoque médio. Hype subindo.</div>
+      <div class="choices"><a class="choice danger" href="#d3_overstock"><span class="letter">A</span><b>Repor antes da demanda</b><p>Comprar lote grande.</p></a>
+<a class="choice primary" href="#d3_prevenda_ok"><span class="letter">B</span><b>Pré-vender com o hype</b><p>Cobrar sinal e encomendar.</p></a>
+<a class="choice primary" href="#d3_marketing_ok"><span class="letter">C</span><b>Vender no WhatsApp</b><p>Aproveitar sem aumentar risco.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-neutral" id="d2_promocao">
+  <div class="card">
+    <div class="hero"><div class="day">2/7</div><h1 class="title">Dia 2 — Promoção de correção</h1></div>
+    <div class="content">
+      <p class="story">Você percebeu que preço alto travou o giro e baixou o valor.
+
+A liquidação recuperou caixa, mas parte da margem ficou pelo caminho.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.180</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.360</b></div><div class="stat"><small>Energia</small><b>55</b></div><div class="stat"><small>Reputação</small><b>+2</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">Estoque baixo.</div>
+      <div class="choices"><a class="choice primary" href="#d3_combo_ok"><span class="letter">A</span><b>Reposição moderada</b><p>Comprar combos sem exagerar.</p></a>
+<a class="choice primary" href="#d3_prevenda_ok"><span class="letter">B</span><b>Pré-vender modelos</b><p>Não errar estoque de novo.</p></a>
+<a class="choice danger" href="#d2_fones"><span class="letter">C</span><b>Comprar fones</b><p>Produto novo para tentar margem alta.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-bad" id="d2_alto_risco">
+  <div class="card">
+    <div class="hero"><div class="day">2/7</div><h1 class="title">Dia 2 — Insistência no preço</h1></div>
+    <div class="content">
+      <p class="story">Você manteve preço alto. Vendeu pouco e começou a parecer caro demais.
+
+Ainda há estoque e tempo, mas sua reputação ficou frágil.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.040</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.760</b></div><div class="stat"><small>Energia</small><b>62</b></div><div class="stat"><small>Reputação</small><b>-1</b></div><div class="stat"><small>Risco</small><b>4</b></div></div>
+      <div class="inv">Muito estoque parado.</div>
+      <div class="choices"><a class="choice primary" href="#d3_combo_giro"><span class="letter">A</span><b>Assumir erro e liquidar</b><p>Cortar preço para recuperar caixa.</p></a>
+<a class="choice danger" href="#d3_overstock"><span class="letter">B</span><b>Dobrar aposta em marketing</b><p>Pagar divulgação forte.</p></a>
+<a class="choice secondary" href="#d3_prevenda_ok"><span class="letter">C</span><b>Mudar para pré-venda</b><p>Parar de comprar no escuro.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d2_combo_volume">
+  <div class="card">
+    <div class="hero"><div class="day">2/7</div><h1 class="title">Dia 2 — Lote de combos</h1></div>
+    <div class="content">
+      <p class="story">Você compra estoque de capa + película para escalar.
+
+O potencial de lucro é alto, mas agora existe risco de sobrar produto se a demanda esfriar.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 560</b></div><div class="stat"><small>Patrimônio</small><b>R$ 2.360</b></div><div class="stat"><small>Energia</small><b>56</b></div><div class="stat"><small>Reputação</small><b>+5</b></div><div class="stat"><small>Risco</small><b>3</b></div></div>
+      <div class="inv">30 combos disponíveis.</div>
+      <div class="choices"><a class="choice primary" href="#d3_marketing_ok"><span class="letter">A</span><b>Vender com divulgador</b><p>Comissão por combo vendido.</p></a>
+<a class="choice primary" href="#d3_prevenda_ok"><span class="letter">B</span><b>Lista de encomendas</b><p>Reservar modelos específicos com sinal.</p></a>
+<a class="choice secondary" href="#d3_combo_giro"><span class="letter">C</span><b>Promoção agressiva</b><p>Girar estoque rápido.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d2_prevenda">
+  <div class="card">
+    <div class="hero"><div class="day">2/7</div><h1 class="title">Dia 2 — Pré-venda profissional</h1></div>
+    <div class="content">
+      <p class="story">Você cobra sinal antes de comprar modelos específicos. Isso reduz encalhe e melhora confiança.
+
+Entram várias reservas para entrega no dia seguinte.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.430</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.900</b></div><div class="stat"><small>Energia</small><b>60</b></div><div class="stat"><small>Reputação</small><b>+7</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">Encomendas com sinal. Pouco estoque parado.</div>
+      <div class="choices"><a class="choice primary" href="#d3_prevenda_ok"><span class="letter">A</span><b>Comprar só o reservado</b><p>Risco baixo, lucro previsível.</p></a>
+<a class="choice primary" href="#d3_marketing_ok"><span class="letter">B</span><b>Comprar reservado + extras</b><p>Aproveitar o fluxo e escalar.</p></a>
+<a class="choice secondary" href="#d2_fones"><span class="letter">C</span><b>Adicionar fones</b><p>Tentar aumentar ticket médio.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="d2_fones">
+  <div class="card">
+    <div class="hero"><div class="day">2/7</div><h1 class="title">Dia 2 — Produto novo: fones baratos</h1></div>
+    <div class="content">
+      <p class="story">O fornecedor oferece fones simples por R$ 22 para revender a R$ 45.
+
+Pode funcionar como upsell, mas produto eletrônico dá mais reclamação.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 820</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.920</b></div><div class="stat"><small>Energia</small><b>55</b></div><div class="stat"><small>Reputação</small><b>+3</b></div><div class="stat"><small>Risco</small><b>4</b></div></div>
+      <div class="inv">20 fones + estoque variado.</div>
+      <div class="choices"><a class="choice primary" href="#d3_fone_ok"><span class="letter">A</span><b>Vender fone como upsell</b><p>Oferecer junto com combo.</p></a>
+<a class="choice secondary" href="#d3_combo_ok"><span class="letter">B</span><b>Evitar empurrar produto</b><p>Vender apenas quando pedirem.</p></a>
+<a class="choice danger" href="#d3_fone_risco"><span class="letter">C</span><b>Fazer promoção de fone</b><p>Girar rápido e aceitar mais risco.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="d2_servico">
+  <div class="card">
+    <div class="hero"><div class="day">2/7</div><h1 class="title">Dia 2 — Serviços continuam</h1></div>
+    <div class="content">
+      <p class="story">Você passa o dia entregando currículos, resumos e edições. O caixa cresce, mas a energia cai.
+
+Esse caminho tem pouco estoque, porém escala pior.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.540</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.540</b></div><div class="stat"><small>Energia</small><b>25</b></div><div class="stat"><small>Reputação</small><b>+8</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">Base de clientes confiando em você.</div>
+      <div class="choices"><a class="choice primary" href="#d3_combo_ok"><span class="letter">A</span><b>Descansar e migrar para produto</b><p>Usar reputação para vender combos.</p></a>
+<a class="choice secondary" href="#d3_servico_ok"><span class="letter">B</span><b>Continuar serviço premium</b><p>Cobrar caro e trabalhar muito.</p></a>
+<a class="choice danger" href="#d3_terceirizar"><span class="letter">C</span><b>Terceirizar para amigo</b><p>Dividir lucro para ganhar escala.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d3_marketing_ok">
+  <div class="card">
+    <div class="hero"><div class="day">3/7</div><h1 class="title">Dia 3 — Hype bem usado</h1></div>
+    <div class="content">
+      <p class="story">A divulgação trouxe movimento. Você vendeu bastante sem pagar custo fixo.
+
+Mas a coordenação avisou: nada de vender dentro da instituição sem autorização.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 2.050</b></div><div class="stat"><small>Patrimônio</small><b>R$ 2.650</b></div><div class="stat"><small>Energia</small><b>38</b></div><div class="stat"><small>Reputação</small><b>+10</b></div><div class="stat"><small>Risco</small><b>3</b></div></div>
+      <div class="inv">Estoque médio. Hype alto.</div>
+      <div class="choices"><a class="choice primary" href="#d4_whatsapp"><span class="letter">A</span><b>Migrar para WhatsApp</b><p>Entregar fora e reduzir problema.</p></a>
+<a class="choice secondary" href="#d4_autorizado"><span class="letter">B</span><b>Pedir autorização</b><p>Tentar legalizar as vendas.</p></a>
+<a class="choice danger" href="#d4_escondido"><span class="letter">C</span><b>Continuar escondido</b><p>Ganhar mais agora, risco maior.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="d3_sozinho">
+  <div class="card">
+    <div class="hero"><div class="day">3/7</div><h1 class="title">Dia 3 — Vendeu sozinho</h1></div>
+    <div class="content">
+      <p class="story">Você economizou comissão, mas gastou energia abordando todo mundo.
+
+O resultado foi decente, porém você ficou cansado.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.650</b></div><div class="stat"><small>Patrimônio</small><b>R$ 2.080</b></div><div class="stat"><small>Energia</small><b>22</b></div><div class="stat"><small>Reputação</small><b>+6</b></div><div class="stat"><small>Risco</small><b>2</b></div></div>
+      <div class="inv">Estoque restante moderado.</div>
+      <div class="choices"><a class="choice primary" href="#d4_whatsapp"><span class="letter">A</span><b>Migrar para WhatsApp</b><p>Menos esforço presencial.</p></a>
+<a class="choice secondary" href="#d4_descanso"><span class="letter">B</span><b>Descansar antes de escalar</b><p>Perder vendas, proteger energia.</p></a>
+<a class="choice danger" href="#d4_escondido"><span class="letter">C</span><b>Continuar no presencial</b><p>Forçar venda apesar do cansaço.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-bad" id="d3_overstock">
+  <div class="card">
+    <div class="hero"><div class="day">3/7</div><h1 class="title">Dia 3 — Estoque pesado</h1></div>
+    <div class="content">
+      <p class="story">Você comprou demais antes de ter demanda garantida. O patrimônio parece alto, mas boa parte está parada em produto.
+
+Agora qualquer erro de preço ou canal pesa.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 240</b></div><div class="stat"><small>Patrimônio</small><b>R$ 2.900</b></div><div class="stat"><small>Energia</small><b>42</b></div><div class="stat"><small>Reputação</small><b>+4</b></div><div class="stat"><small>Risco</small><b>5</b></div></div>
+      <div class="inv">Muito estoque, caixa baixo.</div>
+      <div class="choices"><a class="choice primary" href="#d4_giro"><span class="letter">A</span><b>Promoção controlada</b><p>Transformar estoque em caixa sem destruir margem.</p></a>
+<a class="choice primary" href="#d4_whatsapp"><span class="letter">B</span><b>Pré-venda por modelo</b><p>Parar de aumentar estoque errado.</p></a>
+<a class="choice danger" href="#d4_divida"><span class="letter">C</span><b>Pegar dinheiro emprestado</b><p>Comprar ainda mais para evento.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d3_combo_ok">
+  <div class="card">
+    <div class="hero"><div class="day">3/7</div><h1 class="title">Dia 3 — Operação equilibrada</h1></div>
+    <div class="content">
+      <p class="story">Você vendeu combos com boa margem e sem lotar estoque.
+
+A coordenação pediu para não vender dentro da instituição. É hora de profissionalizar o canal.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.880</b></div><div class="stat"><small>Patrimônio</small><b>R$ 2.250</b></div><div class="stat"><small>Energia</small><b>48</b></div><div class="stat"><small>Reputação</small><b>+8</b></div><div class="stat"><small>Risco</small><b>2</b></div></div>
+      <div class="inv">Estoque controlado.</div>
+      <div class="choices"><a class="choice primary" href="#d4_whatsapp"><span class="letter">A</span><b>WhatsApp + ponto de entrega</b><p>Organizar pedidos fora da instituição.</p></a>
+<a class="choice secondary" href="#d4_autorizado"><span class="letter">B</span><b>Autorização formal</b><p>Tentar vender de forma aberta.</p></a>
+<a class="choice danger" href="#d4_escondido"><span class="letter">C</span><b>Esconder vendas</b><p>Continuar no impulso.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d3_combo_giro">
+  <div class="card">
+    <div class="hero"><div class="day">3/7</div><h1 class="title">Dia 3 — Giro forte</h1></div>
+    <div class="content">
+      <p class="story">A promoção vendeu muito. O caixa entrou rápido, mas a margem foi menor.
+
+O lado bom: clientes satisfeitos e estoque mais leve.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 2.160</b></div><div class="stat"><small>Patrimônio</small><b>R$ 2.300</b></div><div class="stat"><small>Energia</small><b>40</b></div><div class="stat"><small>Reputação</small><b>+9</b></div><div class="stat"><small>Risco</small><b>2</b></div></div>
+      <div class="inv">Estoque baixo. Base de clientes maior.</div>
+      <div class="choices"><a class="choice primary" href="#d4_whatsapp"><span class="letter">A</span><b>Pré-vender próxima leva</b><p>Usar clientes para vender antes de comprar.</p></a>
+<a class="choice primary" href="#d4_lote"><span class="letter">B</span><b>Comprar grande para sexta</b><p>Apostar no evento da semana.</p></a>
+<a class="choice secondary" href="#d4_descanso"><span class="letter">C</span><b>Descansar</b><p>Preservar energia e caixa.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d3_prevenda_ok">
+  <div class="card">
+    <div class="hero"><div class="day">3/7</div><h1 class="title">Dia 3 — Encomendas entregues</h1></div>
+    <div class="content">
+      <p class="story">Você comprou os modelos certos, entregou no combinado e recebeu o restante.
+
+Pré-venda reduziu risco e aumentou reputação.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 2.240</b></div><div class="stat"><small>Patrimônio</small><b>R$ 2.520</b></div><div class="stat"><small>Energia</small><b>50</b></div><div class="stat"><small>Reputação</small><b>+12</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">Pouco estoque parado. Muitos contatos.</div>
+      <div class="choices"><a class="choice primary" href="#d4_whatsapp"><span class="letter">A</span><b>Escalar com pré-venda</b><p>Repetir método em grupo maior.</p></a>
+<a class="choice primary" href="#d4_lote"><span class="letter">B</span><b>Comprar lote para sexta</b><p>Aproveitar reputação para vender no evento.</p></a>
+<a class="choice secondary" href="#d4_fones_cauto"><span class="letter">C</span><b>Adicionar fones com cautela</b><p>Testar upsell sem exagerar.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="d3_fone_ok">
+  <div class="card">
+    <div class="hero"><div class="day">3/7</div><h1 class="title">Dia 3 — Upsell funcionou</h1></div>
+    <div class="content">
+      <p class="story">Os fones venderam como complemento. Alguns clientes gostaram, mas você percebe que precisa testar qualidade antes de escalar.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 2.020</b></div><div class="stat"><small>Patrimônio</small><b>R$ 2.700</b></div><div class="stat"><small>Energia</small><b>36</b></div><div class="stat"><small>Reputação</small><b>+7</b></div><div class="stat"><small>Risco</small><b>4</b></div></div>
+      <div class="inv">Estoque variado: combos e fones.</div>
+      <div class="choices"><a class="choice primary" href="#d4_lote"><span class="letter">A</span><b>Focar no que vendeu</b><p>Manter combos e fones bons.</p></a>
+<a class="choice secondary" href="#d4_whatsapp"><span class="letter">B</span><b>Parar fones ruins</b><p>Evitar reclamação futura.</p></a>
+<a class="choice danger" href="#d4_divida"><span class="letter">C</span><b>Comprar mais eletrônicos</b><p>Risco maior, margem maior.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-bad" id="d3_fone_risco">
+  <div class="card">
+    <div class="hero"><div class="day">3/7</div><h1 class="title">Dia 3 — Reclamação de eletrônico</h1></div>
+    <div class="content">
+      <p class="story">A promoção vendeu fones, mas 3 deram problema.
+
+Você precisou trocar alguns e sua reputação sofreu.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.740</b></div><div class="stat"><small>Patrimônio</small><b>R$ 2.400</b></div><div class="stat"><small>Energia</small><b>30</b></div><div class="stat"><small>Reputação</small><b>+2</b></div><div class="stat"><small>Risco</small><b>6</b></div></div>
+      <div class="inv">Estoque variado e risco alto de garantia.</div>
+      <div class="choices"><a class="choice primary" href="#d4_whatsapp"><span class="letter">A</span><b>Assumir trocas</b><p>Perder caixa, salvar reputação.</p></a>
+<a class="choice secondary" href="#d4_giro"><span class="letter">B</span><b>Liquidar eletrônicos</b><p>Sair desse produto.</p></a>
+<a class="choice danger" href="#d4_escondido"><span class="letter">C</span><b>Ignorar reclamações</b><p>Manter caixa, destruir confiança.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="d3_servico_ok">
+  <div class="card">
+    <div class="hero"><div class="day">3/7</div><h1 class="title">Dia 3 — Serviço premium</h1></div>
+    <div class="content">
+      <p class="story">Você cobrou mais caro e entregou bem. O caixa subiu sem estoque, mas sua energia está no limite.
+
+Agora a pergunta é: continuar trabalhando manualmente ou usar o caixa para um produto escalável?</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 2.050</b></div><div class="stat"><small>Patrimônio</small><b>R$ 2.050</b></div><div class="stat"><small>Energia</small><b>18</b></div><div class="stat"><small>Reputação</small><b>+11</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">Sem estoque. Alta confiança.</div>
+      <div class="choices"><a class="choice primary" href="#d4_descanso"><span class="letter">A</span><b>Descansar e comprar combos</b><p>Usar caixa com mente fria.</p></a>
+<a class="choice primary" href="#d4_whatsapp"><span class="letter">B</span><b>Pré-vender para base</b><p>Vender produto para clientes que confiam em você.</p></a>
+<a class="choice danger" href="#d4_burnout"><span class="letter">C</span><b>Prometer entrega demais</b><p>Aceitar todos os serviços.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-bad" id="d3_terceirizar">
+  <div class="card">
+    <div class="hero"><div class="day">3/7</div><h1 class="title">Dia 3 — Terceirização bagunçada</h1></div>
+    <div class="content">
+      <p class="story">Você passou parte dos serviços para um amigo, mas ele atrasou entregas.
+
+Você ganhou escala, mas perdeu controle de qualidade.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.980</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.980</b></div><div class="stat"><small>Energia</small><b>30</b></div><div class="stat"><small>Reputação</small><b>+4</b></div><div class="stat"><small>Risco</small><b>5</b></div></div>
+      <div class="inv">Clientes confusos, operação bagunçada.</div>
+      <div class="choices"><a class="choice primary" href="#d4_descanso"><span class="letter">A</span><b>Reorganizar tudo</b><p>Pedir desculpa e padronizar.</p></a>
+<a class="choice secondary" href="#d4_lote"><span class="letter">B</span><b>Migrar para produto físico</b><p>Menos dependência do amigo.</p></a>
+<a class="choice danger" href="#d4_burnout"><span class="letter">C</span><b>Continuar terceirizando</b><p>Apostar em escala apesar do risco.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-neutral" id="d3_wait">
+  <div class="card">
+    <div class="hero"><div class="day">3/7</div><h1 class="title">Dia 3 — Espera estratégica</h1></div>
+    <div class="content">
+      <p class="story">Você não cresceu tanto, mas chegou ao meio da semana com caixa, energia e risco baixo.
+
+Isso pode virar vantagem no evento de sexta.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.650</b></div><div class="stat"><small>Patrimônio</small><b>R$ 1.760</b></div><div class="stat"><small>Energia</small><b>82</b></div><div class="stat"><small>Reputação</small><b>+4</b></div><div class="stat"><small>Risco</small><b>0</b></div></div>
+      <div class="inv">Estoque pequeno.</div>
+      <div class="choices"><a class="choice primary" href="#d4_lote"><span class="letter">A</span><b>Comprar lote para sexta</b><p>Usar caixa no momento certo.</p></a>
+<a class="choice primary" href="#d4_whatsapp"><span class="letter">B</span><b>Pré-venda antes do lote</b><p>Garantir demanda primeiro.</p></a>
+<a class="choice secondary" href="#d4_descanso"><span class="letter">C</span><b>Continuar conservador</b><p>Menor chance de grande lucro.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d4_whatsapp">
+  <div class="card">
+    <div class="hero"><div class="day">4/7</div><h1 class="title">Dia 4 — Canal profissional</h1></div>
+    <div class="content">
+      <p class="story">Você migrou para WhatsApp, lista de modelos e entrega fora da instituição.
+
+Menos impulso, mas muito menos dor de cabeça. A operação começa a parecer negócio de verdade.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 2.620</b></div><div class="stat"><small>Patrimônio</small><b>R$ 3.050</b></div><div class="stat"><small>Energia</small><b>52</b></div><div class="stat"><small>Reputação</small><b>+15</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">Pedidos organizados. Estoque leve.</div>
+      <div class="choices"><a class="choice primary" href="#d5_prevenda_evento"><span class="letter">A</span><b>Pré-venda para sexta</b><p>Cobrar sinal para o evento.</p></a>
+<a class="choice primary" href="#d5_lote_medio"><span class="letter">B</span><b>Comprar lote moderado</b><p>Ter estoque pronto para vender.</p></a>
+<a class="choice secondary" href="#d5_parceria"><span class="letter">C</span><b>Parceria com divulgador</b><p>Vender por comissão.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d4_autorizado">
+  <div class="card">
+    <div class="hero"><div class="day">4/7</div><h1 class="title">Dia 4 — Autorização limitada</h1></div>
+    <div class="content">
+      <p class="story">Você pediu autorização. Não liberaram venda livre, mas permitiram entrega fora do portão e divulgação discreta.
+
+A postura responsável aumentou confiança.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 2.420</b></div><div class="stat"><small>Patrimônio</small><b>R$ 2.880</b></div><div class="stat"><small>Energia</small><b>48</b></div><div class="stat"><small>Reputação</small><b>+16</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">Operação limpa. Fluxo moderado.</div>
+      <div class="choices"><a class="choice primary" href="#d5_parceria"><span class="letter">A</span><b>Usar autorização no marketing</b><p>Vender como operação confiável.</p></a>
+<a class="choice primary" href="#d5_prevenda_evento"><span class="letter">B</span><b>Pré-vender por modelo</b><p>Escalar sem encalhar.</p></a>
+<a class="choice secondary" href="#d5_lote_medio"><span class="letter">C</span><b>Comprar pouco</b><p>Crescer com segurança.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-bad" id="d4_escondido">
+  <div class="card">
+    <div class="hero"><div class="day">4/7</div><h1 class="title">Dia 4 — Venda escondida deu problema</h1></div>
+    <div class="content">
+      <p class="story">Você continuou vendendo no impulso. Vendeu bem por algumas horas, mas foi chamado atenção.
+
+Perdeu tempo, energia e parte da reputação.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 2.180</b></div><div class="stat"><small>Patrimônio</small><b>R$ 2.780</b></div><div class="stat"><small>Energia</small><b>25</b></div><div class="stat"><small>Reputação</small><b>+3</b></div><div class="stat"><small>Risco</small><b>7</b></div></div>
+      <div class="inv">Estoque médio, operação sob pressão.</div>
+      <div class="choices"><a class="choice primary" href="#d5_lote_medio"><span class="letter">A</span><b>Corrigir rota</b><p>Passar tudo para WhatsApp.</p></a>
+<a class="choice secondary" href="#d5_liquidacao"><span class="letter">B</span><b>Liquidação rápida</b><p>Transformar estoque em caixa antes de dar mais problema.</p></a>
+<a class="choice danger" href="#d5_risco_alto"><span class="letter">C</span><b>Continuar arriscando</b><p>Tentar recuperar no volume.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-neutral" id="d4_descanso">
+  <div class="card">
+    <div class="hero"><div class="day">4/7</div><h1 class="title">Dia 4 — Organização e descanso</h1></div>
+    <div class="content">
+      <p class="story">Você parou para arrumar pedidos, responder clientes e dormir melhor.
+
+Não foi o dia mais lucrativo, mas sua energia voltou.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 2.200</b></div><div class="stat"><small>Patrimônio</small><b>R$ 2.420</b></div><div class="stat"><small>Energia</small><b>78</b></div><div class="stat"><small>Reputação</small><b>+10</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">Estoque baixo, operação saudável.</div>
+      <div class="choices"><a class="choice primary" href="#d5_lote_medio"><span class="letter">A</span><b>Comprar lote para sexta</b><p>Agora com energia para vender.</p></a>
+<a class="choice primary" href="#d5_prevenda_evento"><span class="letter">B</span><b>Pré-vender antes</b><p>Menor risco, ritmo mais profissional.</p></a>
+<a class="choice secondary" href="#d5_servico_extra"><span class="letter">C</span><b>Fazer serviço extra</b><p>Gerar caixa sem estoque.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d4_giro">
+  <div class="card">
+    <div class="hero"><div class="day">4/7</div><h1 class="title">Dia 4 — Giro controlado</h1></div>
+    <div class="content">
+      <p class="story">Você cortou preço apenas nos modelos parados e manteve margem nos modelos procurados.
+
+Foi uma boa recuperação de caixa.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 2.480</b></div><div class="stat"><small>Patrimônio</small><b>R$ 2.850</b></div><div class="stat"><small>Energia</small><b>38</b></div><div class="stat"><small>Reputação</small><b>+8</b></div><div class="stat"><small>Risco</small><b>3</b></div></div>
+      <div class="inv">Estoque mais leve.</div>
+      <div class="choices"><a class="choice primary" href="#d5_lote_medio"><span class="letter">A</span><b>Repor só campeões de venda</b><p>Comprar os modelos que mais saíram.</p></a>
+<a class="choice primary" href="#d5_prevenda_evento"><span class="letter">B</span><b>Pré-venda no grupo</b><p>Cobrar sinal antes de repor.</p></a>
+<a class="choice secondary" href="#d5_liquidacao"><span class="letter">C</span><b>Queimar tudo</b><p>Garantir caixa e reduzir risco.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="d4_lote">
+  <div class="card">
+    <div class="hero"><div class="day">4/7</div><h1 class="title">Dia 4 — Lote para sexta</h1></div>
+    <div class="content">
+      <p class="story">Você compra um lote relevante pensando no evento de sexta.
+
+Se o evento for bom, seu lucro salta. Se não for, sobra estoque.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.520</b></div><div class="stat"><small>Patrimônio</small><b>R$ 3.750</b></div><div class="stat"><small>Energia</small><b>45</b></div><div class="stat"><small>Reputação</small><b>+11</b></div><div class="stat"><small>Risco</small><b>4</b></div></div>
+      <div class="inv">Muito estoque para o evento.</div>
+      <div class="choices"><a class="choice primary" href="#d5_parceria"><span class="letter">A</span><b>Ir com parceria</b><p>Comissão por venda no evento.</p></a>
+<a class="choice secondary" href="#d5_sozinho_evento"><span class="letter">B</span><b>Ir sozinho</b><p>Não dividir margem.</p></a>
+<a class="choice primary" href="#d5_prevenda_evento"><span class="letter">C</span><b>Pré-vender antes do evento</b><p>Chegar com compradores já aquecidos.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-bad" id="d4_divida">
+  <div class="card">
+    <div class="hero"><div class="day">4/7</div><h1 class="title">Dia 4 — Dívida perigosa</h1></div>
+    <div class="content">
+      <p class="story">Você pegou dinheiro emprestado para comprar mais estoque.
+
+Pode dar muito certo, mas agora o jogo virou: se a venda falhar, o prejuízo dói.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 900</b></div><div class="stat"><small>Patrimônio</small><b>R$ 4.200</b></div><div class="stat"><small>Energia</small><b>35</b></div><div class="stat"><small>Reputação</small><b>+5</b></div><div class="stat"><small>Risco</small><b>8</b></div></div>
+      <div class="inv">Estoque alto. Dívida de R$ 700 embutida.</div>
+      <div class="choices"><a class="choice primary" href="#d5_parceria"><span class="letter">A</span><b>Evento com comissão</b><p>Maximizar chance de venda.</p></a>
+<a class="choice secondary" href="#d5_liquidacao"><span class="letter">B</span><b>Liquidação antes de vencer dívida</b><p>Menos lucro, mais segurança.</p></a>
+<a class="choice danger" href="#d5_risco_alto"><span class="letter">C</span><b>Dobrar aposta no evento</b><p>Tentar vender tudo.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d4_fones_cauto">
+  <div class="card">
+    <div class="hero"><div class="day">4/7</div><h1 class="title">Dia 4 — Upsell cauteloso</h1></div>
+    <div class="content">
+      <p class="story">Você testou fones sem aumentar demais o lote. Funcionou como venda adicional, não como centro do negócio.
+
+Boa decisão de controle.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 2.760</b></div><div class="stat"><small>Patrimônio</small><b>R$ 3.300</b></div><div class="stat"><small>Energia</small><b>42</b></div><div class="stat"><small>Reputação</small><b>+13</b></div><div class="stat"><small>Risco</small><b>2</b></div></div>
+      <div class="inv">Combos + alguns fones testados.</div>
+      <div class="choices"><a class="choice primary" href="#d5_parceria"><span class="letter">A</span><b>Evento com catálogo enxuto</b><p>Levar só o que vende bem.</p></a>
+<a class="choice primary" href="#d5_prevenda_evento"><span class="letter">B</span><b>Pré-venda de kits</b><p>Combo + fone com sinal.</p></a>
+<a class="choice danger" href="#d5_risco_alto"><span class="letter">C</span><b>Comprar mais fones</b><p>Aumentar margem, aumentar reclamação.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-bad" id="d4_burnout">
+  <div class="card">
+    <div class="hero"><div class="day">4/7</div><h1 class="title">Dia 4 — Burnout operacional</h1></div>
+    <div class="content">
+      <p class="story">Você prometeu entrega demais. O dinheiro entrou, mas atrasos e cansaço começaram a virar reclamação.
+
+A operação ficou frágil.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 2.600</b></div><div class="stat"><small>Patrimônio</small><b>R$ 2.600</b></div><div class="stat"><small>Energia</small><b>5</b></div><div class="stat"><small>Reputação</small><b>+1</b></div><div class="stat"><small>Risco</small><b>7</b></div></div>
+      <div class="inv">Muitos compromissos. Pouca energia.</div>
+      <div class="choices"><a class="choice secondary" href="#d5_servico_extra"><span class="letter">A</span><b>Pausar e pedir prazo</b><p>Salvar reputação no limite.</p></a>
+<a class="choice primary" href="#d5_lote_medio"><span class="letter">B</span><b>Migrar para produto simples</b><p>Parar de prometer serviço manual.</p></a>
+<a class="choice danger" href="#d5_risco_alto"><span class="letter">C</span><b>Aceitar ainda mais pedidos</b><p>Ganância máxima.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d5_prevenda_evento">
+  <div class="card">
+    <div class="hero"><div class="day">5/7</div><h1 class="title">Dia 5 — Sexta com pré-venda</h1></div>
+    <div class="content">
+      <p class="story">Você abriu reservas antes do evento. Muita gente pagou sinal.
+
+Você chega à noite sabendo que parte da venda já está garantida.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 3.120</b></div><div class="stat"><small>Patrimônio</small><b>R$ 4.050</b></div><div class="stat"><small>Energia</small><b>50</b></div><div class="stat"><small>Reputação</small><b>+18</b></div><div class="stat"><small>Risco</small><b>2</b></div></div>
+      <div class="inv">Pedidos reservados + estoque moderado.</div>
+      <div class="choices"><a class="choice primary" href="#d6_pos_evento_forte"><span class="letter">A</span><b>Entregar e vender extras</b><p>Atender reservas e ofertar para amigos.</p></a>
+<a class="choice primary" href="#d6_pos_evento_lenda"><span class="letter">B</span><b>Chamar parceiro</b><p>Aumentar alcance com comissão.</p></a>
+<a class="choice secondary" href="#d6_pos_evento_seguro"><span class="letter">C</span><b>Fazer só entregas</b><p>Reduzir esforço e encerrar cedo.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d5_lote_medio">
+  <div class="card">
+    <div class="hero"><div class="day">5/7</div><h1 class="title">Dia 5 — Lote moderado para evento</h1></div>
+    <div class="content">
+      <p class="story">Você comprou o suficiente para aproveitar a sexta, sem colocar todo o caixa em estoque.
+
+A noite promete.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 2.050</b></div><div class="stat"><small>Patrimônio</small><b>R$ 3.450</b></div><div class="stat"><small>Energia</small><b>55</b></div><div class="stat"><small>Reputação</small><b>+12</b></div><div class="stat"><small>Risco</small><b>3</b></div></div>
+      <div class="inv">Estoque bom para evento.</div>
+      <div class="choices"><a class="choice primary" href="#d6_pos_evento_ok"><span class="letter">A</span><b>Ir sozinho</b><p>Ficar com toda margem.</p></a>
+<a class="choice primary" href="#d6_pos_evento_forte"><span class="letter">B</span><b>Chamar parceiro</b><p>Vender mais e pagar comissão.</p></a>
+<a class="choice secondary" href="#d6_pos_evento_seguro"><span class="letter">C</span><b>Fazer oferta no WhatsApp</b><p>Menos esforço, menos alcance.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d5_parceria">
+  <div class="card">
+    <div class="hero"><div class="day">5/7</div><h1 class="title">Dia 5 — Parceria no evento</h1></div>
+    <div class="content">
+      <p class="story">Você chama o divulgador e acerta comissão por venda.
+
+O movimento cresce. Você perde um pedaço da margem, mas vende mais e cansa menos.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 3.380</b></div><div class="stat"><small>Patrimônio</small><b>R$ 4.300</b></div><div class="stat"><small>Energia</small><b>32</b></div><div class="stat"><small>Reputação</small><b>+20</b></div><div class="stat"><small>Risco</small><b>3</b></div></div>
+      <div class="inv">Estoque reduzido depois do evento. Hype alto.</div>
+      <div class="choices"><a class="choice primary" href="#d6_pos_evento_forte"><span class="letter">A</span><b>Descansar sábado cedo</b><p>Proteger energia e vender à tarde.</p></a>
+<a class="choice secondary" href="#d6_repor_sabado"><span class="letter">B</span><b>Comprar mais para sábado</b><p>Aproveitar demanda quente.</p></a>
+<a class="choice danger" href="#d6_exausto"><span class="letter">C</span><b>Forçar venda madrugada</b><p>Tentar espremer lucro agora.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="d5_sozinho_evento">
+  <div class="card">
+    <div class="hero"><div class="day">5/7</div><h1 class="title">Dia 5 — Evento sozinho</h1></div>
+    <div class="content">
+      <p class="story">Você vendeu bem, mas teve que abordar, receber, separar modelo e resolver troca sozinho.
+
+O caixa subiu, a energia despencou.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 3.000</b></div><div class="stat"><small>Patrimônio</small><b>R$ 3.900</b></div><div class="stat"><small>Energia</small><b>12</b></div><div class="stat"><small>Reputação</small><b>+12</b></div><div class="stat"><small>Risco</small><b>5</b></div></div>
+      <div class="inv">Estoque médio. Corpo cansado.</div>
+      <div class="choices"><a class="choice primary" href="#d6_pos_evento_ok"><span class="letter">A</span><b>Descansar sábado</b><p>Vender depois com cabeça limpa.</p></a>
+<a class="choice danger" href="#d6_exausto"><span class="letter">B</span><b>Vender sábado inteiro</b><p>Arriscar erro por cansaço.</p></a>
+<a class="choice secondary" href="#d6_liquidar_sabado"><span class="letter">C</span><b>Liquidar estoque</b><p>Acabar logo com a operação.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-neutral" id="d5_liquidacao">
+  <div class="card">
+    <div class="hero"><div class="day">5/7</div><h1 class="title">Dia 5 — Liquidação defensiva</h1></div>
+    <div class="content">
+      <p class="story">Você decidiu transformar estoque em caixa. A margem caiu, mas o risco caiu junto.
+
+Não é glamouroso, mas evita ficar preso em produto.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 3.250</b></div><div class="stat"><small>Patrimônio</small><b>R$ 3.420</b></div><div class="stat"><small>Energia</small><b>40</b></div><div class="stat"><small>Reputação</small><b>+8</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">Estoque baixo.</div>
+      <div class="choices"><a class="choice primary" href="#d6_prevenda_domingo"><span class="letter">A</span><b>Pré-venda domingo</b><p>Usar caixa e segurança para vender sob demanda.</p></a>
+<a class="choice secondary" href="#final_seguro"><span class="letter">B</span><b>Parar no lucro</b><p>Não correr mais risco.</p></a>
+<a class="choice danger" href="#d6_repor_sabado"><span class="letter">C</span><b>Reentrar agressivo</b><p>Comprar novo lote no sábado.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-neutral" id="d5_servico_extra">
+  <div class="card">
+    <div class="hero"><div class="day">5/7</div><h1 class="title">Dia 5 — Caixa por serviço</h1></div>
+    <div class="content">
+      <p class="story">Você faz alguns serviços extras e recupera parte do caixa sem aumentar estoque.
+
+Mas a semana está acabando. Para crescer muito, precisa de evento ou pré-venda.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 2.850</b></div><div class="stat"><small>Patrimônio</small><b>R$ 2.950</b></div><div class="stat"><small>Energia</small><b>35</b></div><div class="stat"><small>Reputação</small><b>+12</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">Pouco estoque, boa base de contatos.</div>
+      <div class="choices"><a class="choice primary" href="#d6_prevenda_domingo"><span class="letter">A</span><b>Pré-venda domingo</b><p>Vender sob demanda para a base.</p></a>
+<a class="choice secondary" href="#d6_repor_sabado"><span class="letter">B</span><b>Comprar lote moderado</b><p>Tentar último salto.</p></a>
+<a class="choice secondary" href="#final_seguro"><span class="letter">C</span><b>Encerrar com caixa</b><p>Evitar risco final.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-bad" id="d5_risco_alto">
+  <div class="card">
+    <div class="hero"><div class="day">5/7</div><h1 class="title">Dia 5 — Risco alto cobrou preço</h1></div>
+    <div class="content">
+      <p class="story">A aposta agressiva vendeu bastante no começo, mas deu confusão: atraso, troca e reclamação.
+
+Você ainda tem patrimônio, mas o risco operacional está muito alto.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 2.700</b></div><div class="stat"><small>Patrimônio</small><b>R$ 4.100</b></div><div class="stat"><small>Energia</small><b>10</b></div><div class="stat"><small>Reputação</small><b>0</b></div><div class="stat"><small>Risco</small><b>9</b></div></div>
+      <div class="inv">Estoque alto, clientes tensos.</div>
+      <div class="choices"><a class="choice primary" href="#d6_liquidar_sabado"><span class="letter">A</span><b>Assumir prejuízo e organizar</b><p>Salvar o que dá.</p></a>
+<a class="choice secondary" href="#final_sobreviveu"><span class="letter">B</span><b>Parar imediatamente</b><p>Encerrar antes de piorar.</p></a>
+<a class="choice danger" href="#d6_tudo_ou_nada"><span class="letter">C</span><b>Última aposta domingo</b><p>Pode virar ou quebrar.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d6_pos_evento_lenda">
+  <div class="card">
+    <div class="hero"><div class="day">6/7</div><h1 class="title">Dia 6 — Sábado com hype absurdo</h1></div>
+    <div class="content">
+      <p class="story">A sexta foi excelente. A parceria trouxe compradores e muita gente te chamou no sábado.
+
+Você está perto de um final excelente.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 4.450</b></div><div class="stat"><small>Patrimônio</small><b>R$ 5.200</b></div><div class="stat"><small>Energia</small><b>38</b></div><div class="stat"><small>Reputação</small><b>+26</b></div><div class="stat"><small>Risco</small><b>3</b></div></div>
+      <div class="inv">Estoque baixo, demanda alta.</div>
+      <div class="choices"><a class="choice primary" href="#d7_lenda"><span class="letter">A</span><b>Pré-venda de domingo</b><p>Comprar só o que vender com sinal.</p></a>
+<a class="choice danger" href="#d7_agressivo"><span class="letter">B</span><b>Comprar grande para domingo</b><p>Mais lucro, mais risco.</p></a>
+<a class="choice secondary" href="#final_forte"><span class="letter">C</span><b>Encerrar preservando lucro</b><p>Final seguro, menos ambição.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d6_pos_evento_forte">
+  <div class="card">
+    <div class="hero"><div class="day">6/7</div><h1 class="title">Dia 6 — Sábado forte</h1></div>
+    <div class="content">
+      <p class="story">Você descansou um pouco e voltou no momento certo.
+
+As vendas continuam, mas você já sabe que não deve comprar no escuro.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 3.900</b></div><div class="stat"><small>Patrimônio</small><b>R$ 4.550</b></div><div class="stat"><small>Energia</small><b>46</b></div><div class="stat"><small>Reputação</small><b>+22</b></div><div class="stat"><small>Risco</small><b>2</b></div></div>
+      <div class="inv">Estoque médio-baixo. Muitos contatos.</div>
+      <div class="choices"><a class="choice primary" href="#d7_lenda"><span class="letter">A</span><b>Pré-vender domingo</b><p>Sinal de R$ 20 por combo.</p></a>
+<a class="choice secondary" href="#final_forte"><span class="letter">B</span><b>Vender estoque restante</b><p>Sem novas compras.</p></a>
+<a class="choice danger" href="#d7_agressivo"><span class="letter">C</span><b>Comprar lote extra</b><p>Apostar na última onda.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-neutral" id="d6_pos_evento_ok">
+  <div class="card">
+    <div class="hero"><div class="day">6/7</div><h1 class="title">Dia 6 — Sábado controlado</h1></div>
+    <div class="content">
+      <p class="story">Você vendeu bem, mas sem explosão. O negócio foi lucrativo e ainda tem margem para uma última jogada.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 3.450</b></div><div class="stat"><small>Patrimônio</small><b>R$ 4.050</b></div><div class="stat"><small>Energia</small><b>40</b></div><div class="stat"><small>Reputação</small><b>+16</b></div><div class="stat"><small>Risco</small><b>3</b></div></div>
+      <div class="inv">Estoque moderado.</div>
+      <div class="choices"><a class="choice primary" href="#d7_profissional"><span class="letter">A</span><b>Pré-venda domingo</b><p>Caminho mais inteligente.</p></a>
+<a class="choice secondary" href="#final_bom"><span class="letter">B</span><b>Liquidar estoque</b><p>Garantir dinheiro no bolso.</p></a>
+<a class="choice danger" href="#d7_agressivo"><span class="letter">C</span><b>Comprar mais mesmo assim</b><p>Forçar crescimento.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d6_pos_evento_seguro">
+  <div class="card">
+    <div class="hero"><div class="day">6/7</div><h1 class="title">Dia 6 — Sábado seguro</h1></div>
+    <div class="content">
+      <p class="story">Você não tentou sugar cada centavo. Entregou bem, preservou energia e evitou problema.
+
+Não será o maior final possível, mas é sólido.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 3.300</b></div><div class="stat"><small>Patrimônio</small><b>R$ 3.750</b></div><div class="stat"><small>Energia</small><b>62</b></div><div class="stat"><small>Reputação</small><b>+18</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">Pouco estoque, operação limpa.</div>
+      <div class="choices"><a class="choice primary" href="#d7_profissional"><span class="letter">A</span><b>Pré-venda leve domingo</b><p>Pequeno lucro final sem risco alto.</p></a>
+<a class="choice secondary" href="#final_bom"><span class="letter">B</span><b>Encerrar agora</b><p>Final conservador com boa reputação.</p></a>
+<a class="choice secondary" href="#final_forte"><span class="letter">C</span><b>Promoção final</b><p>Girar tudo hoje.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="d6_repor_sabado">
+  <div class="card">
+    <div class="hero"><div class="day">6/7</div><h1 class="title">Dia 6 — Reposição no sábado</h1></div>
+    <div class="content">
+      <p class="story">Você comprou mais estoque para tentar aproveitar o fim de semana.
+
+O fornecedor cobrou um pouco mais caro. A margem caiu, mas ainda existe lucro.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 2.650</b></div><div class="stat"><small>Patrimônio</small><b>R$ 4.900</b></div><div class="stat"><small>Energia</small><b>34</b></div><div class="stat"><small>Reputação</small><b>+14</b></div><div class="stat"><small>Risco</small><b>5</b></div></div>
+      <div class="inv">Estoque alto para domingo.</div>
+      <div class="choices"><a class="choice primary" href="#d7_profissional"><span class="letter">A</span><b>Pré-vender antes de comprar mais</b><p>Reduzir risco final.</p></a>
+<a class="choice danger" href="#d7_agressivo"><span class="letter">B</span><b>Vender agressivamente domingo</b><p>Tentar bater recorde.</p></a>
+<a class="choice secondary" href="#final_bom"><span class="letter">C</span><b>Liquidar parte no atacado</b><p>Proteger caixa.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-bad" id="d6_exausto">
+  <div class="card">
+    <div class="hero"><div class="day">6/7</div><h1 class="title">Dia 6 — Exaustão</h1></div>
+    <div class="content">
+      <p class="story">Você forçou demais. Até vendeu, mas errou modelos, atrasou entrega e respondeu mal alguns clientes.
+
+O caixa ainda está bom, mas a reputação está ferida.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 3.200</b></div><div class="stat"><small>Patrimônio</small><b>R$ 4.000</b></div><div class="stat"><small>Energia</small><b>3</b></div><div class="stat"><small>Reputação</small><b>+4</b></div><div class="stat"><small>Risco</small><b>8</b></div></div>
+      <div class="inv">Estoque médio e clientes esperando resposta.</div>
+      <div class="choices"><a class="choice primary" href="#final_sobreviveu"><span class="letter">A</span><b>Pausar e corrigir</b><p>Perder venda, salvar reputação.</p></a>
+<a class="choice secondary" href="#d6_liquidar_sabado"><span class="letter">B</span><b>Liquidar tudo barato</b><p>Encerrar antes de piorar.</p></a>
+<a class="choice danger" href="#d6_tudo_ou_nada"><span class="letter">C</span><b>Tudo ou nada domingo</b><p>Última tentativa agressiva.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-neutral" id="d6_liquidar_sabado">
+  <div class="card">
+    <div class="hero"><div class="day">6/7</div><h1 class="title">Dia 6 — Liquidação de sábado</h1></div>
+    <div class="content">
+      <p class="story">Você reduziu preços e vendeu quase tudo.
+
+Não foi bonito, mas limpou risco operacional.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 3.650</b></div><div class="stat"><small>Patrimônio</small><b>R$ 3.780</b></div><div class="stat"><small>Energia</small><b>24</b></div><div class="stat"><small>Reputação</small><b>+7</b></div><div class="stat"><small>Risco</small><b>2</b></div></div>
+      <div class="inv">Estoque quase zerado.</div>
+      <div class="choices"><a class="choice primary" href="#final_bom"><span class="letter">A</span><b>Finalizar</b><p>Terminar com lucro e aprendizado.</p></a>
+<a class="choice secondary" href="#d7_profissional"><span class="letter">B</span><b>Pré-venda pequena</b><p>Tentar mais um ganho sem estoque.</p></a>
+<a class="choice danger" href="#d7_agressivo"><span class="letter">C</span><b>Comprar para domingo</b><p>Risco desnecessário, mas possível.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d6_prevenda_domingo">
+  <div class="card">
+    <div class="hero"><div class="day">6/7</div><h1 class="title">Dia 6 — Pré-venda para domingo</h1></div>
+    <div class="content">
+      <p class="story">Você usa sua base de contatos e vende antes de comprar.
+
+Mesmo com fornecedor mais caro no domingo, o sinal protege o caixa.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 3.700</b></div><div class="stat"><small>Patrimônio</small><b>R$ 4.200</b></div><div class="stat"><small>Energia</small><b>42</b></div><div class="stat"><small>Reputação</small><b>+17</b></div><div class="stat"><small>Risco</small><b>2</b></div></div>
+      <div class="inv">Reservas para domingo. Baixo estoque parado.</div>
+      <div class="choices"><a class="choice primary" href="#d7_profissional"><span class="letter">A</span><b>Comprar só reservado</b><p>Executar com segurança.</p></a>
+<a class="choice danger" href="#d7_agressivo"><span class="letter">B</span><b>Comprar reservado + extra</b><p>Tentar aumentar lucro no último dia.</p></a>
+<a class="choice secondary" href="#final_seguro"><span class="letter">C</span><b>Encerrar e não comprar</b><p>Ficar com sinais? Não ético: devolver sinais.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-bad" id="d6_tudo_ou_nada">
+  <div class="card">
+    <div class="hero"><div class="day">6/7</div><h1 class="title">Dia 6 — Tudo ou nada preparado</h1></div>
+    <div class="content">
+      <p class="story">Você ignora sinais de cansaço e prepara uma última aposta.
+
+Se vender tudo, bate recorde. Se falhar, parte do lucro evapora.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 1.600</b></div><div class="stat"><small>Patrimônio</small><b>R$ 5.600</b></div><div class="stat"><small>Energia</small><b>8</b></div><div class="stat"><small>Reputação</small><b>+1</b></div><div class="stat"><small>Risco</small><b>10</b></div></div>
+      <div class="inv">Estoque enorme. Caixa baixo. Risco máximo.</div>
+      <div class="choices"><a class="choice danger" href="#d7_caos"><span class="letter">A</span><b>Ir até o fim</b><p>Tentar vender tudo no domingo.</p></a>
+<a class="choice secondary" href="#final_sobreviveu"><span class="letter">B</span><b>Arrepender e liquidar</b><p>Aceitar lucro menor para não quebrar.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d7_lenda">
+  <div class="card">
+    <div class="hero"><div class="day">7/7</div><h1 class="title">Dia 7 — Domingo sob demanda</h1></div>
+    <div class="content">
+      <p class="story">Você vendeu com sinal antes de comprar. Alguns clientes sumiram, mas o sinal cobriu boa parte do risco.
+
+Você termina com caixa alto, reputação alta e quase nenhum estoque morto.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 5.350</b></div><div class="stat"><small>Patrimônio</small><b>R$ 5.620</b></div><div class="stat"><small>Energia</small><b>28</b></div><div class="stat"><small>Reputação</small><b>+30</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">Estoque mínimo. Clientes para próxima semana.</div>
+      <div class="choices"><a class="choice primary" href="#final_lenda_marca"><span class="letter">A</span><b>Sortear uma capa e ganhar seguidores</b><p>Menos caixa, mais marca.</p></a>
+<a class="choice primary" href="#final_lenda_caixa"><span class="letter">B</span><b>Liquidar estoque restante</b><p>Maximizar caixa final.</p></a>
+<a class="choice secondary" href="#final_lenda_equilibrio"><span class="letter">C</span><b>Guardar estoque para segunda</b><p>Maximizar margem futura.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="d7_profissional">
+  <div class="card">
+    <div class="hero"><div class="day">7/7</div><h1 class="title">Dia 7 — Execução profissional</h1></div>
+    <div class="content">
+      <p class="story">Você comprou apenas o que tinha boa chance de vender. A entrega foi limpa e o lucro veio sem susto.
+
+Não foi o final mais explosivo, mas foi muito bem operado.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 4.420</b></div><div class="stat"><small>Patrimônio</small><b>R$ 4.720</b></div><div class="stat"><small>Energia</small><b>32</b></div><div class="stat"><small>Reputação</small><b>+22</b></div><div class="stat"><small>Risco</small><b>1</b></div></div>
+      <div class="inv">Estoque baixo. Operação saudável.</div>
+      <div class="choices"><a class="choice primary" href="#final_profissional_caixa"><span class="letter">A</span><b>Liquidar estoque restante</b><p>Fechar caixa agora.</p></a>
+<a class="choice secondary" href="#final_profissional_margem"><span class="letter">B</span><b>Manter preço normal</b><p>Levar estoque para semana seguinte.</p></a>
+<a class="choice secondary" href="#final_profissional_marca"><span class="letter">C</span><b>Fazer sorteio</b><p>Trocar um pouco de caixa por reputação.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="d7_agressivo">
+  <div class="card">
+    <div class="hero"><div class="day">7/7</div><h1 class="title">Dia 7 — Domingo agressivo</h1></div>
+    <div class="content">
+      <p class="story">Você comprou extra para tentar lucrar mais. Vendeu bastante, mas sobrou produto e alguns clientes desistiram.
+
+Ainda foi lucrativo, só que menos limpo.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 4.080</b></div><div class="stat"><small>Patrimônio</small><b>R$ 5.050</b></div><div class="stat"><small>Energia</small><b>15</b></div><div class="stat"><small>Reputação</small><b>+13</b></div><div class="stat"><small>Risco</small><b>6</b></div></div>
+      <div class="inv">Estoque restante considerável.</div>
+      <div class="choices"><a class="choice primary" href="#final_agressivo_caixa"><span class="letter">A</span><b>Queimar estoque</b><p>Reduzir risco e fechar caixa.</p></a>
+<a class="choice secondary" href="#final_agressivo_estoque"><span class="letter">B</span><b>Manter estoque</b><p>Aceitar patrimônio maior, mas menos caixa.</p></a>
+<a class="choice secondary" href="#final_agressivo_atacado"><span class="letter">C</span><b>Atacado para parceiro</b><p>Receber rápido com desconto.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-bad" id="d7_caos">
+  <div class="card">
+    <div class="hero"><div class="day">7/7</div><h1 class="title">Dia 7 — Caos operacional</h1></div>
+    <div class="content">
+      <p class="story">Você vendeu no limite, mas estoque, trocas, desistências e cansaço viraram uma bagunça.
+
+O patrimônio existe, mas parte dele está preso em produto e reputação ruim.</p>
+      <div class="grid"><div class="stat"><small>Caixa</small><b>R$ 3.300</b></div><div class="stat"><small>Patrimônio</small><b>R$ 5.200</b></div><div class="stat"><small>Energia</small><b>0</b></div><div class="stat"><small>Reputação</small><b>-4</b></div><div class="stat"><small>Risco</small><b>10</b></div></div>
+      <div class="inv">Estoque alto, reclamações e dívida moral com clientes.</div>
+      <div class="choices"><a class="choice primary" href="#final_caos_liquida"><span class="letter">A</span><b>Liquidar com prejuízo</b><p>Salvar caixa final.</p></a>
+<a class="choice danger" href="#final_caos_ruim"><span class="letter">B</span><b>Ignorar reclamações</b><p>Patrimônio maior no papel, reputação destruída.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="final_lenda_marca">
+  <div class="card">
+    <div class="hero"><div class="day">Fim</div><h1 class="title">Resultado — Lenda local — marca forte</h1></div>
+    <div class="content">
+      <p class="story">Você terminou com menos caixa imediato, mas uma marca forte e clientes para a próxima semana.
+
+Classificação: Final S.</p>
+      <div class="grid"><div class="stat"><small>Caixa final</small><b>R$ 5.500</b></div><div class="stat"><small>Reputação final</small><b>+35</b></div><div class="stat"><small>Ranking</small><b>Final S</b></div><div class="stat"><small>Duração</small><b>7 dias</b></div><div class="stat"><small>Status</small><b>Encerrado</b></div></div>
+      <div class="inv">Jogo finalizado. Compare com outros finais e tente uma rota diferente.</div>
+      <div class="choices"><a class="choice primary" href="#inicio"><span class="letter">A</span><b>Jogar de novo</b><p>Voltar ao começo e tentar outro caminho.</p></a>
+<a class="choice secondary" href="#regras"><span class="letter">B</span><b>Ver regras</b><p>Revisar como o jogo funciona.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="final_lenda_caixa">
+  <div class="card">
+    <div class="hero"><div class="day">Fim</div><h1 class="title">Resultado — Lenda local — caixa máximo</h1></div>
+    <div class="content">
+      <p class="story">Você liquidou o resto e terminou com muito dinheiro no bolso. Operação enxuta e lucrativa.
+
+Classificação: Final S.</p>
+      <div class="grid"><div class="stat"><small>Caixa final</small><b>R$ 5.780</b></div><div class="stat"><small>Reputação final</small><b>+30</b></div><div class="stat"><small>Ranking</small><b>Final S</b></div><div class="stat"><small>Duração</small><b>7 dias</b></div><div class="stat"><small>Status</small><b>Encerrado</b></div></div>
+      <div class="inv">Jogo finalizado. Compare com outros finais e tente uma rota diferente.</div>
+      <div class="choices"><a class="choice primary" href="#inicio"><span class="letter">A</span><b>Jogar de novo</b><p>Voltar ao começo e tentar outro caminho.</p></a>
+<a class="choice secondary" href="#regras"><span class="letter">B</span><b>Ver regras</b><p>Revisar como o jogo funciona.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="final_lenda_equilibrio">
+  <div class="card">
+    <div class="hero"><div class="day">Fim</div><h1 class="title">Resultado — Lenda local — equilíbrio</h1></div>
+    <div class="content">
+      <p class="story">Você manteve margem e terminou com caixa alto, estoque baixo e reputação excelente.
+
+Classificação: Final S.</p>
+      <div class="grid"><div class="stat"><small>Caixa final</small><b>R$ 5.650</b></div><div class="stat"><small>Reputação final</small><b>+32</b></div><div class="stat"><small>Ranking</small><b>Final S</b></div><div class="stat"><small>Duração</small><b>7 dias</b></div><div class="stat"><small>Status</small><b>Encerrado</b></div></div>
+      <div class="inv">Jogo finalizado. Compare com outros finais e tente uma rota diferente.</div>
+      <div class="choices"><a class="choice primary" href="#inicio"><span class="letter">A</span><b>Jogar de novo</b><p>Voltar ao começo e tentar outro caminho.</p></a>
+<a class="choice secondary" href="#regras"><span class="letter">B</span><b>Ver regras</b><p>Revisar como o jogo funciona.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="final_profissional_caixa">
+  <div class="card">
+    <div class="hero"><div class="day">Fim</div><h1 class="title">Resultado — Empreendedor profissional</h1></div>
+    <div class="content">
+      <p class="story">Você fechou caixa, reduziu risco e terminou com ótimo lucro.
+
+Classificação: Final A.</p>
+      <div class="grid"><div class="stat"><small>Caixa final</small><b>R$ 4.850</b></div><div class="stat"><small>Reputação final</small><b>+22</b></div><div class="stat"><small>Ranking</small><b>Final A</b></div><div class="stat"><small>Duração</small><b>7 dias</b></div><div class="stat"><small>Status</small><b>Encerrado</b></div></div>
+      <div class="inv">Jogo finalizado. Compare com outros finais e tente uma rota diferente.</div>
+      <div class="choices"><a class="choice primary" href="#inicio"><span class="letter">A</span><b>Jogar de novo</b><p>Voltar ao começo e tentar outro caminho.</p></a>
+<a class="choice secondary" href="#regras"><span class="letter">B</span><b>Ver regras</b><p>Revisar como o jogo funciona.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="final_profissional_margem">
+  <div class="card">
+    <div class="hero"><div class="day">Fim</div><h1 class="title">Resultado — Operador de margem</h1></div>
+    <div class="content">
+      <p class="story">Você não queimou preço e levou estoque bom para a próxima semana.
+
+Classificação: Final A.</p>
+      <div class="grid"><div class="stat"><small>Caixa final</small><b>R$ 4.720</b></div><div class="stat"><small>Reputação final</small><b>+23</b></div><div class="stat"><small>Ranking</small><b>Final A</b></div><div class="stat"><small>Duração</small><b>7 dias</b></div><div class="stat"><small>Status</small><b>Encerrado</b></div></div>
+      <div class="inv">Jogo finalizado. Compare com outros finais e tente uma rota diferente.</div>
+      <div class="choices"><a class="choice primary" href="#inicio"><span class="letter">A</span><b>Jogar de novo</b><p>Voltar ao começo e tentar outro caminho.</p></a>
+<a class="choice secondary" href="#regras"><span class="letter">B</span><b>Ver regras</b><p>Revisar como o jogo funciona.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="final_profissional_marca">
+  <div class="card">
+    <div class="hero"><div class="day">Fim</div><h1 class="title">Resultado — Marca em construção</h1></div>
+    <div class="content">
+      <p class="story">Você trocou parte do lucro por reputação e base futura.
+
+Classificação: Final A.</p>
+      <div class="grid"><div class="stat"><small>Caixa final</small><b>R$ 4.650</b></div><div class="stat"><small>Reputação final</small><b>+28</b></div><div class="stat"><small>Ranking</small><b>Final A</b></div><div class="stat"><small>Duração</small><b>7 dias</b></div><div class="stat"><small>Status</small><b>Encerrado</b></div></div>
+      <div class="inv">Jogo finalizado. Compare com outros finais e tente uma rota diferente.</div>
+      <div class="choices"><a class="choice primary" href="#inicio"><span class="letter">A</span><b>Jogar de novo</b><p>Voltar ao começo e tentar outro caminho.</p></a>
+<a class="choice secondary" href="#regras"><span class="letter">B</span><b>Ver regras</b><p>Revisar como o jogo funciona.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="final_agressivo_caixa">
+  <div class="card">
+    <div class="hero"><div class="day">Fim</div><h1 class="title">Resultado — Agressivo bem-sucedido</h1></div>
+    <div class="content">
+      <p class="story">Você tomou risco, mas liquidou na hora certa. Ganhou bem, com desgaste.
+
+Classificação: Final B+.</p>
+      <div class="grid"><div class="stat"><small>Caixa final</small><b>R$ 4.920</b></div><div class="stat"><small>Reputação final</small><b>+13</b></div><div class="stat"><small>Ranking</small><b>Final B+</b></div><div class="stat"><small>Duração</small><b>7 dias</b></div><div class="stat"><small>Status</small><b>Encerrado</b></div></div>
+      <div class="inv">Jogo finalizado. Compare com outros finais e tente uma rota diferente.</div>
+      <div class="choices"><a class="choice primary" href="#inicio"><span class="letter">A</span><b>Jogar de novo</b><p>Voltar ao começo e tentar outro caminho.</p></a>
+<a class="choice secondary" href="#regras"><span class="letter">B</span><b>Ver regras</b><p>Revisar como o jogo funciona.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="final_agressivo_estoque">
+  <div class="card">
+    <div class="hero"><div class="day">Fim</div><h1 class="title">Resultado — Rico no papel</h1></div>
+    <div class="content">
+      <p class="story">Seu patrimônio parece alto, mas há estoque parado. Ainda assim, terminou no lucro.
+
+Classificação: Final B.</p>
+      <div class="grid"><div class="stat"><small>Caixa final</small><b>R$ 5.050</b></div><div class="stat"><small>Reputação final</small><b>+11</b></div><div class="stat"><small>Ranking</small><b>Final B</b></div><div class="stat"><small>Duração</small><b>7 dias</b></div><div class="stat"><small>Status</small><b>Encerrado</b></div></div>
+      <div class="inv">Jogo finalizado. Compare com outros finais e tente uma rota diferente.</div>
+      <div class="choices"><a class="choice primary" href="#inicio"><span class="letter">A</span><b>Jogar de novo</b><p>Voltar ao começo e tentar outro caminho.</p></a>
+<a class="choice secondary" href="#regras"><span class="letter">B</span><b>Ver regras</b><p>Revisar como o jogo funciona.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="final_agressivo_atacado">
+  <div class="card">
+    <div class="hero"><div class="day">Fim</div><h1 class="title">Resultado — Saída no atacado</h1></div>
+    <div class="content">
+      <p class="story">Você vendeu o resto com desconto para reduzir risco. Final sólido, menos margem.
+
+Classificação: Final B.</p>
+      <div class="grid"><div class="stat"><small>Caixa final</small><b>R$ 4.700</b></div><div class="stat"><small>Reputação final</small><b>+14</b></div><div class="stat"><small>Ranking</small><b>Final B</b></div><div class="stat"><small>Duração</small><b>7 dias</b></div><div class="stat"><small>Status</small><b>Encerrado</b></div></div>
+      <div class="inv">Jogo finalizado. Compare com outros finais e tente uma rota diferente.</div>
+      <div class="choices"><a class="choice primary" href="#inicio"><span class="letter">A</span><b>Jogar de novo</b><p>Voltar ao começo e tentar outro caminho.</p></a>
+<a class="choice secondary" href="#regras"><span class="letter">B</span><b>Ver regras</b><p>Revisar como o jogo funciona.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="final_bom">
+  <div class="card">
+    <div class="hero"><div class="day">Fim</div><h1 class="title">Resultado — Bom operador</h1></div>
+    <div class="content">
+      <p class="story">Você não bateu recorde, mas terminou com lucro, reputação positiva e risco controlado.
+
+Classificação: Final B.</p>
+      <div class="grid"><div class="stat"><small>Caixa final</small><b>R$ 3.900</b></div><div class="stat"><small>Reputação final</small><b>+15</b></div><div class="stat"><small>Ranking</small><b>Final B</b></div><div class="stat"><small>Duração</small><b>7 dias</b></div><div class="stat"><small>Status</small><b>Encerrado</b></div></div>
+      <div class="inv">Jogo finalizado. Compare com outros finais e tente uma rota diferente.</div>
+      <div class="choices"><a class="choice primary" href="#inicio"><span class="letter">A</span><b>Jogar de novo</b><p>Voltar ao começo e tentar outro caminho.</p></a>
+<a class="choice secondary" href="#regras"><span class="letter">B</span><b>Ver regras</b><p>Revisar como o jogo funciona.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-good" id="final_forte">
+  <div class="card">
+    <div class="hero"><div class="day">Fim</div><h1 class="title">Resultado — Final forte</h1></div>
+    <div class="content">
+      <p class="story">Você encerrou antes de se expor demais. Bom caixa e operação limpa.
+
+Classificação: Final A-.</p>
+      <div class="grid"><div class="stat"><small>Caixa final</small><b>R$ 4.350</b></div><div class="stat"><small>Reputação final</small><b>+21</b></div><div class="stat"><small>Ranking</small><b>Final A-</b></div><div class="stat"><small>Duração</small><b>7 dias</b></div><div class="stat"><small>Status</small><b>Encerrado</b></div></div>
+      <div class="inv">Jogo finalizado. Compare com outros finais e tente uma rota diferente.</div>
+      <div class="choices"><a class="choice primary" href="#inicio"><span class="letter">A</span><b>Jogar de novo</b><p>Voltar ao começo e tentar outro caminho.</p></a>
+<a class="choice secondary" href="#regras"><span class="letter">B</span><b>Ver regras</b><p>Revisar como o jogo funciona.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="final_seguro">
+  <div class="card">
+    <div class="hero"><div class="day">Fim</div><h1 class="title">Resultado — Conservador lucrativo</h1></div>
+    <div class="content">
+      <p class="story">Você protegeu caixa e evitou grandes erros. O lucro foi menor, mas consistente.
+
+Classificação: Final C+.</p>
+      <div class="grid"><div class="stat"><small>Caixa final</small><b>R$ 3.250</b></div><div class="stat"><small>Reputação final</small><b>+12</b></div><div class="stat"><small>Ranking</small><b>Final C+</b></div><div class="stat"><small>Duração</small><b>7 dias</b></div><div class="stat"><small>Status</small><b>Encerrado</b></div></div>
+      <div class="inv">Jogo finalizado. Compare com outros finais e tente uma rota diferente.</div>
+      <div class="choices"><a class="choice primary" href="#inicio"><span class="letter">A</span><b>Jogar de novo</b><p>Voltar ao começo e tentar outro caminho.</p></a>
+<a class="choice secondary" href="#regras"><span class="letter">B</span><b>Ver regras</b><p>Revisar como o jogo funciona.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="final_sobreviveu">
+  <div class="card">
+    <div class="hero"><div class="day">Fim</div><h1 class="title">Resultado — Sobreviveu ao próprio risco</h1></div>
+    <div class="content">
+      <p class="story">Você lucrou, mas quase perdeu controle. Aprendizado caro.
+
+Classificação: Final C.</p>
+      <div class="grid"><div class="stat"><small>Caixa final</small><b>R$ 3.100</b></div><div class="stat"><small>Reputação final</small><b>+3</b></div><div class="stat"><small>Ranking</small><b>Final C</b></div><div class="stat"><small>Duração</small><b>7 dias</b></div><div class="stat"><small>Status</small><b>Encerrado</b></div></div>
+      <div class="inv">Jogo finalizado. Compare com outros finais e tente uma rota diferente.</div>
+      <div class="choices"><a class="choice primary" href="#inicio"><span class="letter">A</span><b>Jogar de novo</b><p>Voltar ao começo e tentar outro caminho.</p></a>
+<a class="choice secondary" href="#regras"><span class="letter">B</span><b>Ver regras</b><p>Revisar como o jogo funciona.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-warn" id="final_caos_liquida">
+  <div class="card">
+    <div class="hero"><div class="day">Fim</div><h1 class="title">Resultado — Saiu machucado, mas saiu</h1></div>
+    <div class="content">
+      <p class="story">Você liquidou com prejuízo relativo e salvou parte do lucro. Reputação baixa.
+
+Classificação: Final C-.</p>
+      <div class="grid"><div class="stat"><small>Caixa final</small><b>R$ 3.750</b></div><div class="stat"><small>Reputação final</small><b>-2</b></div><div class="stat"><small>Ranking</small><b>Final C-</b></div><div class="stat"><small>Duração</small><b>7 dias</b></div><div class="stat"><small>Status</small><b>Encerrado</b></div></div>
+      <div class="inv">Jogo finalizado. Compare com outros finais e tente uma rota diferente.</div>
+      <div class="choices"><a class="choice primary" href="#inicio"><span class="letter">A</span><b>Jogar de novo</b><p>Voltar ao começo e tentar outro caminho.</p></a>
+<a class="choice secondary" href="#regras"><span class="letter">B</span><b>Ver regras</b><p>Revisar como o jogo funciona.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+<section class="screen mood-bad" id="final_caos_ruim">
+  <div class="card">
+    <div class="hero"><div class="day">Fim</div><h1 class="title">Resultado — Dinheiro sem confiança</h1></div>
+    <div class="content">
+      <p class="story">Você terminou com patrimônio no papel, mas reputação ruim e clientes irritados.
+
+Classificação: Final D.</p>
+      <div class="grid"><div class="stat"><small>Caixa final</small><b>R$ 4.100</b></div><div class="stat"><small>Reputação final</small><b>-10</b></div><div class="stat"><small>Ranking</small><b>Final D</b></div><div class="stat"><small>Duração</small><b>7 dias</b></div><div class="stat"><small>Status</small><b>Encerrado</b></div></div>
+      <div class="inv">Jogo finalizado. Compare com outros finais e tente uma rota diferente.</div>
+      <div class="choices"><a class="choice primary" href="#inicio"><span class="letter">A</span><b>Jogar de novo</b><p>Voltar ao começo e tentar outro caminho.</p></a>
+<a class="choice secondary" href="#regras"><span class="letter">B</span><b>Ver regras</b><p>Revisar como o jogo funciona.</p></a>
+</div>
+    </div>
+  </div>
+</section>
+  <div class="footer">Dica: se o arquivo abrir no visualizador do ChatGPT, os botões devem funcionar porque são links internos, não código JavaScript. Se algum app mostrar tudo de uma vez, role até a cena escolhida.</div>
+</div>
+</body>
+</html>
